@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid bg1">
+<div class="container">
+<div class="container">
+    <h1 class="text-center">{{ review.movie }}</h1>
+    <p>{{ review.text }}</p>
+
+    <hr>
+
+    <h5>Comments</h5>
+    {% for comment in review.comments %}
+        <div class="card">
+            <div class="card-body bg-dark">
+                <p class="card-text ">{{ comment.text }}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+    <br><br><br>
+
+    {% if user %}
+
+        <form method="POST" action="{% url 'post-comment' review.pk %}">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="text" class="form-label">Post your comment:</label>
+                <input type="text" name="text" id="text" class="form-control ">
+            </div>
+
+            <button type="submit" class="btn btn-dark">Post</button>
+        </form>
+    {% else %}
+        <h5>Login to post comments</h5>
+    {% endif %}
+</div>
+</div>
+</div>
+{% endblock content %}

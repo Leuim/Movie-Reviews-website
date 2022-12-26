@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid bg1">
+
+<div class="container">
+<br><br><br><br><br><br><br>
+<div class="container">
+
+    <h4 class="text-center">Post A Review</h4>
+    <br><br>
+
+    <form method="POST" action="{% url 'post-review' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="movie" class="form-label">Movie</label>
+            <input type="text" name="movie" id="movie" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="text" class="form-label">Review Text</label>
+            <input type="text" name="text" id="text" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Post Review</button>
+
+        {% if success == 'true' %}
+            <p class="text-success">Successfully posted your review!</p>
+        {% endif %}
+    </form>
+
+</div>
+</div>
+</div>
+
+{% endblock content %}

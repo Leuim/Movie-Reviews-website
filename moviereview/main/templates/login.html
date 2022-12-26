@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid bg1">
+  <br><br><br><br><<br><br>
+<div class="container">
+
+<div class="container mt-3">
+  <h4 class="text-center">Login</h4>
+  <br>
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
+            <div id="emailHelp" class="form-text"><p><b>We'll never share your email with anyone else.</b></p></div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+        </div>
+        {% if valid == 'false' %}
+            <p class="text-danger error-msg">Invalid email or password. Please try again.</p>
+        {% endif %}
+        <button type="submit" class="btn btn-dark">Log In</button>
+    </form>
+</div>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid bg1 text-center ">
+<br><br><br><br>
+  <h1>MoviesHub</h1>
+  <br>
+  <p>MoviesHub is a service that allows users to post there own reviews off any movies they have watched, it also allows a user to comment on other users reviews. <br>
+  Here are some of the reviews posted by the website users: </p>
+  <hr>
+
+
+<br><br>
+
+ <div class="container">
+    <div class="row">
+        {% for review in reviews %}
+            <div class="col-md-4">
+                <div class="card bg-dark" style="width: 18rem;">
+                    <div class="card-body ">
+                        <h5 class="card-title">{{ review.movie }}</h5>
+                        <p class="card-text">{{ review.text }}</p>
+                        <a href="{% url 'review' review.pk %}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+ </div>
+ <br><br><br><br><br><br><br>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+.bg3{
+
+  color: #ffffff;
+  padding-top: 80px;
+  padding-bottom: 70px;
+  margin: 0px;
+}
+.bg1{
+  color: #ffffff;
+  background-color: #004d80;
+  margin: 0px;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+p{
+  color: #ffffff;
+}
+html, body {
+  height: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
